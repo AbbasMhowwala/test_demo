@@ -171,10 +171,13 @@ img.img-fit-size {
 .mobile_menu {
   display: none;
 }
-ul li:hover > #overlay {display: block;} 
+ul li:hover > #overlay {
+  display: block;
+}
 ul li:hover > .dropdown-menu.mega-dropdown-menu {
   display: block;
-}.demo-menu.desktop_menu {
+}
+.demo-menu.desktop_menu {
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -189,4 +192,93 @@ li.menu.cool_menu1 h2 a {
 }
 .mobile_menu {
   display: none;
+}
+li.login-users {
+  position: relative;
+  transition: all 0.4s;
+}
+.no-padding {
+  padding: 0;
+}
+.no-pad {
+  padding: 0;
+}
+li.tel_top {
+  width: 152px;
+}
+.top_left_content li.email_second {
+  width: 200px;
+}
+li.tel_top span {
+  font-size: 13px;
+  margin: 4px 0;
+}
+li.email_second span {
+  font-size: 13px;
+  margin: 4px 0;
+}
+.top_left_content li:first-child {
+  border-right: 1px solid #ccc;
+  margin-right: 10px;
+}
+.top_left_content span {
+  padding: 0 10px 0 0;
+  align-items: center;
+  justify-content: center;
+  color: #656565;
+  font-size: 10px;
+  font-weight: 400;
+  display: block;
+  line-height: 1.5;
+  text-align: left;
+  letter-spacing: 0;
+}
+.top_left_content img {
+  float: left;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin: 5px 10px 0 0;
+}
+.top-header {
+  padding: 8px 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.top_right_content ul li a {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  font-family: Nunito Sans;
+  background: none;
+  text-transform: uppercase;
+  height: calc(100% - 2px);
+  z-index: 10;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin-top: 2px;
+  font-size: 11px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border 0.1s 0.8s, background-color 0.1s 0.8s;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  color: #636363;
+}
+.top_right_content ul li img {
+  width: 15px;
+  height: 16px;
+  margin: 0 4px 2px;
+  vertical-align: middle;
+}
+.top_left_content li
+{
+  display: inline-block;
+}
+.top_right_content.desktop_view_top_head li {
+  display: inline-block;
 }

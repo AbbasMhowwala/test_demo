@@ -20,10 +20,16 @@
     right: 0;
     position: relative;
     box-shadow: none !important;
+    text-transform: capitalize;
   }
-  .offcanvas-start
+  .offcanvas-start, .offcanvas-end
   {
     width: 300px !important;
+    height: 100%;
+  }
+  .offcanvas-top, .offcanvas-bottom
+  {
+    height: 80vh !important;
   }
   .hidden-menu-content
   {

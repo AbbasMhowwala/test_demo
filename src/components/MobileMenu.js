@@ -10,12 +10,28 @@ import {
   Container,
 } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
-
 const MobileMenu = () => {
+  const options = [
+    {
+      name: 'start'
+    },    
+    {
+      name: 'top'
+    },
+    {
+      name: 'bottom'
+    },
+    {
+      name: 'end'
+    }
+  ];
   const [show, setShow] = useState(false);
-
+  const [placement1, setPlacement1] = useState('start');
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (e) =>{
+    setShow(true);
+    setPlacement1(e);
+  } 
   return (
     <div className="mobile_menu">
       <Navbar>
@@ -28,13 +44,12 @@ const MobileMenu = () => {
             ></Image>
           </Nav.Link>
         </div>
-        <Button variant="primary" onClick={handleShow}>
-          Menu
+        {options?.map((e) => (
+        <Button variant="primary" onClick={()=>handleShow(e.name)}> 
+          {e.name}
         </Button>
-        <Offcanvas show={show} onHide={handleClose}>
-          {/* <Offcanvas.Header closeButton>
-            <span className="hidden-menu-content">Abbas</span>
-          </Offcanvas.Header> */}
+        ))}
+        <Offcanvas show={show} placement={placement1} onHide={handleClose} >
           <Offcanvas.Body>
             <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
