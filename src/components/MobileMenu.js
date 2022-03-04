@@ -1,269 +1,1476 @@
-import * as React from "react";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import { Col, Container, Row } from "react-bootstrap";
+import { React, useState } from "react";
+import {
+  Offcanvas,
+  Button,
+  Image,
+  Nav,
+  Accordion,
+  Col,
+  Row,
+  Container,
+} from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
 
-export default function MobileMenu() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setState({ ...state, [anchor]: open });
-  }
-  const [open, setOpen] = React.useState(true); 
-  const handleClick = () => {
-    setOpen(!open);
-  }
+const MobileMenu = () => {
+  const [show, setShow] = useState(false);
 
-  const list = (anchor) => (
-    <List
-      sx={{ width: "100%", bgcolor: "background.paper" }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-    >
-      <ListItemButton onClick={handleClick}>
-        <ListItemText primary="Diamonds" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div">
-        <Container className="dropdown-body">
-              <div className="content-mega-menu">
-                <Row>
-                  <Col
-                  xs={12}
-                    className="tablet_view_padding no-padding border_left_menu"
-                  >
-                    <div className="mega-list-cat">
-                      <h2 className="title14 font-bold text-uppercase mtb">
-                        <a href="https://demo.belgiumwebnet.com/natural-diamonds-search">
-                          Loose Diamonds
-                        </a>
-                      </h2>
-                      <ul className="list-none">
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/round">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/round.png"
-                              alt="round"
-                              className="img-size1"
-                            ></img>
-                            Round
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/princess">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/princess.png"
-                              alt="princess"
-                              className="img-size1"
-                            ></img>
-                            Princess
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/cushion">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/cushion.png"
-                              alt="cushion"
-                              className="img-size1"
-                            ></img>
-                            Cushion
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/emerald">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/emerald.png"
-                              alt="emerald"
-                              className="img-size1"
-                            ></img>
-                            Emerald
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/oval">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/oval.png"
-                              alt="oval"
-                              className="img-size1"
-                            ></img>
-                            Oval
-                          </a>
-                        </li>
-                      </ul>
-                      <ul className="list-none">
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/radiant">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/rediant.png"
-                              alt="radiant"
-                              className="img-size1"
-                            ></img>
-                            Radiant
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/asscher">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/asscher.png"
-                              alt="asscher"
-                              className="img-size1"
-                            ></img>
-                            Asscher
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/marquise">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/marquise.png"
-                              alt="marquise"
-                              className="img-size1"
-                            ></img>
-                            Marquise
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/heart">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/heart.png"
-                              alt="heart"
-                              className="img-size1"
-                            ></img>
-                            Heart
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search/pear">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pear.png"
-                              alt="pear"
-                              className="img-size1"
-                            ></img>
-                            Pear
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </Col>
-                  <Col
-                    xs={12}
-                    className="tablet_view_padding no-padding border_left_menu"
-                  >
-                    <div className="mega-list-cat">
-                      <h2 className="title14 font-bold text-uppercase mtb">
-                        Create Your Own Ring
-                      </h2>
-                      <ul>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/natural-diamonds-search">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
-                              className="img-size"
-                              alt="Start With An Earth-Mined Diamond"
-                            ></img>
-                            Start With An Earth-Mined Diamond
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/lab-diamonds-search">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
-                              className="img-size"
-                              alt="Start With A Lab-Grown Diamond"
-                            ></img>
-                            Start With A Lab-Grown Diamond
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/build-your-own-ring">
-                            <img
-                              src="https://demo.belgiumwebnet.com/assets/images/ring-images/jwel.png"
-                              className="img-size"
-                              alt="Start With A Setting"
-                            ></img>
-                            Start With A Setting
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </Col>
-                  <Col xs={12} className="no-padding border_left_menu">
-                    <div className="mega-list-cat">
-                      <h2 className="title14 font-bold text-uppercase mtb">
-                        Learn About
-                      </h2>
-                      <ul>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/diamond-education#loosediamonds">
-                            Diamond Shapes
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://demo.belgiumwebnet.com/diamond-education?page=4c">
-                            4C's Of A Diamond
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </Col>
-                  <Col xs={12}>
-                    <div className="mega-list-cat">
-                      <a href="https://demo.belgiumwebnet.com/diamonds">
-                        <img
-                          src="https://demo.belgiumwebnet.com/assets/images/menu_img/diamond.jpg"
-                          alt="Custom Diamond Jewelry NYC"
-                          className="menu-image-mob"
-                        ></img>
-                      </a>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-            </Container>
-        </List>
-      </Collapse>
-    </List>
-  );
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div className="mobile_menu">
-      <div className="logo logo1">
-        <a href="https://demo.belgiumwebnet.com/">
-          <img
-            src="https://demo.belgiumwebnet.com/assets/logo/logo2.png"
-            alt="Logo"
-          ></img>
-        </a>
-      </div>
-      {["left", "right", "top", "bottom"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+      <Navbar>
+        <div className="logo logo1">
+          <Nav.Link to="/">
+            <Image
+              src="https://demo.belgiumwebnet.com/assets/logo/logo2.png"
+              alt="Logo"
+              fluid
+            ></Image>
+          </Nav.Link>
+        </div>
+        <Button variant="primary" onClick={handleShow}>
+          Menu
+        </Button>
+        <Offcanvas show={show} onHide={handleClose}>
+          {/* <Offcanvas.Header closeButton>
+            <span className="hidden-menu-content">Abbas</span>
+          </Offcanvas.Header> */}
+          <Offcanvas.Body>
+            <Accordion defaultActiveKey="0">
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Diamonds</Accordion.Header>
+                <Accordion.Body>
+                  <div className="mobilemenu">
+                    <Container className="mobilemenubody">
+                      <div className="content-mega-menu">
+                        <Row>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                <Nav.Link to="/">Shop By Shape</Nav.Link>
+                              </h2>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/round.png"
+                                      alt="round"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Round
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/princess.png"
+                                      alt="princess"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Princess
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/cushion.png"
+                                      alt="cushion"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Cushion
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/emerald.png"
+                                      alt="emerald"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Emerald
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/oval.png"
+                                      alt="oval"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Oval
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/rediant.png"
+                                      alt="radiant"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Radiant
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/asscher.png"
+                                      alt="asscher"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Asscher
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/marquise.png"
+                                      alt="marquise"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Marquise
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/heart.png"
+                                      alt="heart"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Heart
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pear.png"
+                                      alt="pear"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Pear
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Create Your Own Ring
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
+                                      className="img-size"
+                                      alt="Start With An Earth-Mined Diamond"
+                                      fluid
+                                    ></Image>
+                                    Start With An Earth-Mined Diamond
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
+                                      className="img-size"
+                                      alt="Start With A Lab-Grown Diamond"
+                                      fluid
+                                    ></Image>
+                                    Start With A Lab-Grown Diamond
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-images/jwel.png"
+                                      className="img-size"
+                                      alt="Start With A Setting"
+                                      fluid
+                                    ></Image>
+                                    Start With A Setting
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Learn About
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link>Diamond Shapes</Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>4C's Of A Diamond</Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <Nav.Link>
+                                <Image
+                                  src="https://demo.belgiumwebnet.com/assets/images/menu_img/diamond.jpg"
+                                  alt="Custom Diamond Jewelry NYC"
+                                  fluid
+                                ></Image>
+                              </Nav.Link>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </Container>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Gemstone</Accordion.Header>
+                <Accordion.Body>
+                  <div className="mobilemenu">
+                    <Container className="mobilemenubody">
+                      <div className="content-mega-menu">
+                        <Row>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                <Nav.Link>Loose Diamonds</Nav.Link>
+                              </h2>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/round.png"
+                                      alt="round"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Round
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/princess.png"
+                                      alt="princess"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Princess
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/cushion.png"
+                                      alt="cushion"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Cushion
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/emerald.png"
+                                      alt="emerald"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Emerald
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/oval.png"
+                                      alt="oval"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Oval
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/rediant.png"
+                                      alt="radiant"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Radiant
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/asscher.png"
+                                      alt="asscher"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Asscher
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/marquise.png"
+                                      alt="marquise"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Marquise
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/heart.png"
+                                      alt="heart"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Heart
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link>
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pear.png"
+                                      alt="pear"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Pear
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Create Your Own Ring
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
+                                      className="img-size"
+                                      alt="Start With A Gemstone"
+                                      fluid
+                                    ></Image>
+                                    Start With A Gemstone
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-images/jwel.png"
+                                      className="img-size"
+                                      alt="Start With A Setting"
+                                      fluid
+                                    ></Image>
+                                    Start With A Setting
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="mega-list-cat m-top">
+                              <h2 className="text-uppercase mtb">
+                                Shop By Color
+                              </h2>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/" className="blue">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/blue.png"
+                                      width="30px"
+                                      alt="blue gemstone"
+                                      fluid
+                                    ></Image>
+                                    Blue
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/" className="red">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/red.png"
+                                      width="30px"
+                                      alt="red gemstone"
+                                      fluid
+                                    ></Image>
+                                    Red
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/" className="yellow">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/yellow.png"
+                                      width="30px"
+                                      alt="yellow gemstone"
+                                      fluid
+                                    ></Image>
+                                    Yellow
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/" className="pink">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/pink.png"
+                                      width="30px"
+                                      alt="pink gemstone"
+                                      fluid
+                                    ></Image>
+                                    Pink
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/" className="orange">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/orange.png"
+                                      width="30px"
+                                      alt="orange gemstone"
+                                      fluid
+                                    ></Image>
+                                    Orange
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/" className="green">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/green.png"
+                                      width="30px"
+                                      alt="green gemstone"
+                                      fluid
+                                    ></Image>
+                                    Green
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/" className="purple">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/purple.png"
+                                      width="30px"
+                                      alt="purple gemstone"
+                                      fluid
+                                    ></Image>
+                                    Purple
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/" className="multi">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/color/other.png"
+                                      width="30px"
+                                      alt="sapphire gemstone"
+                                      fluid
+                                    ></Image>
+                                    Other
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Gemstone Type
+                              </h2>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/sapphire.png"
+                                      className="img-size"
+                                      alt="Sapphire"
+                                      fluid
+                                    ></Image>
+                                    Sapphire
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/ruby.png"
+                                      className="img-size"
+                                      alt="Ruby"
+                                      fluid
+                                    ></Image>
+                                    Ruby
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/tanzanite.png"
+                                      className="img-size"
+                                      alt="Tanzanite"
+                                      fluid
+                                    ></Image>
+                                    Tanzanite
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/tourmaline.png"
+                                      className="img-size"
+                                      alt="Tourmaline"
+                                      fluid
+                                    ></Image>
+                                    Tourmaline
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/emerald.png"
+                                      className="img-size"
+                                      alt="Emerald"
+                                      fluid
+                                    ></Image>
+                                    Emerald
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/garnet.png"
+                                      className="img-size"
+                                      alt="Garnet"
+                                      fluid
+                                    ></Image>
+                                    Garnet
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/opal.png"
+                                      className="img-size"
+                                      alt="Opal"
+                                      fluid
+                                    ></Image>
+                                    Opal
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/aquamarine.png"
+                                      className="img-size"
+                                      alt="Aquamarine"
+                                      fluid
+                                    ></Image>
+                                    Aquamarine
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/Spectrolite.png"
+                                      className="img-size"
+                                      alt="Spectrolite"
+                                      fluid
+                                    ></Image>
+                                    Spectrolite
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_icon/other2.png"
+                                      className="img-size"
+                                      alt="Other Gem"
+                                      fluid
+                                    ></Image>
+                                    Other Gems
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="mega-list-cat m-top d-inline-block">
+                              <h2 className="text-uppercase mtb">
+                                Learn About
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link to="/">
+                                    Learn About Gemstones
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <Nav.Link to="/">
+                                <Image
+                                  src="https://demo.belgiumwebnet.com/assets/images/menu_img/gemstones.jpg"
+                                  alt="Gemstone"
+                                  fluid
+                                ></Image>
+                              </Nav.Link>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </Container>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Engagement Ring</Accordion.Header>
+                <Accordion.Body>
+                  <div className="mobilemenu">
+                    <Container className="mobilemenubody">
+                      <div className="content-mega-menu">
+                        <Row>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Create Your Own Ring
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-images/jwel.png"
+                                      className="img-size"
+                                      alt="Start With A Setting"
+                                      fluid
+                                    ></Image>
+                                    Start With A Setting
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
+                                      className="img-size"
+                                      alt="Start With An Earth-Mined Diamond"
+                                      fluid
+                                    ></Image>
+                                    Start With An Earth-Mined Diamond
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
+                                      className="img-size"
+                                      alt="Start With A Lab-Grown Diamond"
+                                      fluid
+                                    ></Image>
+                                    Start With A Lab-Grown Diamond
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/ring-builder/ring_part2.png"
+                                      className="img-size"
+                                      alt="Start With A Gemstone"
+                                      fluid
+                                    ></Image>
+                                    Start With A Gemstone
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="mega-list-cat m-top">
+                              <h2 className="text-uppercase mtb">
+                                Learn About
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link to="/">Ring Types</Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link
+                                    to="https://demo.belgiumwebnet.com/assets/images/eng-ring/Ring-sizing-guide.pdf"
+                                    target={"_blank"}
+                                  >
+                                    Ring Size Guide
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className=" text-uppercase mtb">
+                                Shop By Style
+                              </h2>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/halo.png"
+                                      alt="halo"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Halo
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/three-stone.png"
+                                      alt="three-stone"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Three-Stone
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/mutirow-band.png"
+                                      alt="Multirow"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Multirow
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pave1.png"
+                                      alt="Pave"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Pave
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/solitaire.png"
+                                      alt="Solitaire"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Solitaire
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/single-row1.png"
+                                      alt="Channel-Set"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Channel Set
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/vintage.png"
+                                      alt="Vintage"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Vintage
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/bypass.png"
+                                      alt="Bypass"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Bypass
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/sidestone.png"
+                                      alt="Side-Stone"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Side-Stone
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/trellis.png"
+                                      alt="Others"
+                                      className="engagement_img"
+                                      fluid
+                                    ></Image>
+                                    Others
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="mega-list-cat m-top">
+                              <h2 className="text-uppercase mtb m-top">
+                                Shop By Metal
+                              </h2>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con2"></span>Rose
+                                    Gold
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con3"></span>
+                                    White Gold
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                              <ul className="list-none">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con4"></span>
+                                    Yellow Gold
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con5"></span>
+                                    Platinum
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Shop By Shape
+                              </h2>
+                              <ul className="list1">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/round.png"
+                                      alt="round"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Round
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/princess.png"
+                                      alt="princess"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Princess
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/cushion.png"
+                                      alt="cushion"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Cushion
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/oval.png"
+                                      alt="oval"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Oval
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/emerald.png"
+                                      alt="emerald"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Emerald
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/marquise.png"
+                                      alt="marquise"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Marquise
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pear.png"
+                                      alt="pear"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Pear
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <Nav.Link to="/">
+                                <Image
+                                  src="https://demo.belgiumwebnet.com/assets/images/menu_img/engagement.jpg"
+                                  alt="Custom Diamond Engagement Rings NYC"
+                                  fluid
+                                ></Image>
+                              </Nav.Link>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </Container>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>Wedding Rings & Bands</Accordion.Header>
+                <Accordion.Body>
+                  <div className="mobilemenu">
+                    <Container className="mobilemenubody">
+                      <div className="content-mega-menu">
+                        <Row>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">Women</h2>
+                              <ul className="">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/anniversary_ring.png"
+                                      className="engagement_img"
+                                      alt="anniversary_ring"
+                                      fluid
+                                    ></Image>
+                                    Anniversary
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/channel-set-rings.png"
+                                      className="engagement_img"
+                                      alt="channel-set-rings"
+                                      fluid
+                                    ></Image>
+                                    Channel Set
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pave-rings.png"
+                                      className="engagement_img"
+                                      alt="pave-rings"
+                                      fluid
+                                    ></Image>
+                                    Pave
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/stackable-rings.png"
+                                      className="engagement_img"
+                                      alt="stackable-rings"
+                                      fluid
+                                    ></Image>
+                                    Stackable
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/eternity-ring.png"
+                                      className="engagement_img"
+                                      alt="eternity-ring"
+                                      fluid
+                                    ></Image>
+                                    Eternity
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/infinity-rings.png"
+                                      className="engagement_img"
+                                      alt="infinity-rings"
+                                      fluid
+                                    ></Image>
+                                    Infinity
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <ul className="">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/plain-metal-rings.png"
+                                      className="engagement_img"
+                                      alt="plain-metal-rings"
+                                      fluid
+                                    ></Image>
+                                    Plain Metal
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/curved-rings.png"
+                                      className="engagement_img"
+                                      alt="curved-rings"
+                                      fluid
+                                    ></Image>
+                                    Curved
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/fancy-shape-rings.png"
+                                      className="engagement_img"
+                                      alt="fancy-shape-rings"
+                                      fluid
+                                    ></Image>
+                                    Fancy Shape
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/wraps-&amp;-inserts-rings.png"
+                                      className="engagement_img"
+                                      alt="wraps-&amp;-inserts-rings"
+                                      fluid
+                                    ></Image>
+                                    Wraps &amp; Inserts
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/bezel-set-rings.png"
+                                      className="engagement_img"
+                                      alt="bezel-set-rings"
+                                      fluid
+                                    ></Image>
+                                    Bezel Set
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/bar-set-rings.png"
+                                      className="engagement_img"
+                                      alt="bar-set-rings"
+                                      fluid
+                                    ></Image>
+                                    Bar Set
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Shop By Shape
+                              </h2>
+                              <ul className="list1">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/round.png"
+                                      alt="round"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Round
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/princess.png"
+                                      alt="princess"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Princess
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/cushion.png"
+                                      alt="cushion"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Cushion
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/oval.png"
+                                      alt="oval"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Oval
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/emerald.png"
+                                      alt="emerald"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Emerald
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/marquise.png"
+                                      alt="marquise"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Marquise
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/pear.png"
+                                      alt="pear"
+                                      className="img-size1"
+                                      fluid
+                                    ></Image>
+                                    Pear
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">men</h2>
+                              <ul className="">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/plain-metal-rings.png"
+                                      className="engagement_img"
+                                      alt="plain-metal-rings"
+                                      fluid
+                                    ></Image>
+                                    Artisan Carved Bands
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/curved-rings.png"
+                                      className="engagement_img"
+                                      alt="curved-rings"
+                                      fluid
+                                    ></Image>
+                                    Basic Carved
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/fancy-shape-rings.png"
+                                      className="engagement_img"
+                                      alt="fancy-shape-rings"
+                                      fluid
+                                    ></Image>
+                                    Basics
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/wraps-&amp;-inserts-rings.png"
+                                      className="engagement_img"
+                                      alt="wraps-&amp;-inserts-rings"
+                                      fluid
+                                    ></Image>
+                                    Diamonds
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/bezel-set-rings.png"
+                                      className="engagement_img"
+                                      alt="bezel-set-rings"
+                                      fluid
+                                    ></Image>
+                                    Hammered Finish
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/gems_img/icon/bar-set-rings.png"
+                                      className="engagement_img"
+                                      alt="bar-set-rings"
+                                      fluid
+                                    ></Image>
+                                    Religious and Nationality
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="mega-list-cat m-top">
+                              <h2 className="text-uppercase mtb">
+                                Learn About
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link to="/">Ring Types</Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link
+                                    href="https://demo.belgiumwebnet.com/assets/images/eng-ring/Ring-sizing-guide.pdf"
+                                    target={"_blank"}
+                                  >
+                                    Ring Size Guide
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <Nav.Link to="/">
+                                <Image
+                                  src="https://demo.belgiumwebnet.com/assets/images/menu_img/wedding.jpg"
+                                  alt="Unique Design Diamond Jewelry NYC"
+                                  fluid
+                                ></Image>
+                              </Nav.Link>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </Container>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>Fine Jewelry</Accordion.Header>
+                <Accordion.Body>
+                  <div className="mobilemenu">
+                    <Container className="mobilemenubody">
+                      <div className="content-mega-menu">
+                        <Row>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Shop By Type
+                              </h2>
+                              <ul className="l">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/catelogsvg/ring.svg"
+                                      alt="Diamond Rings NYC"
+                                      className="img-fit-size"
+                                      fluid
+                                    ></Image>
+                                    Rings
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/catelogsvg/nack.svg"
+                                      alt="Diamond Necklaces NYC"
+                                      className="img-fit-size"
+                                      fluid
+                                    ></Image>
+                                    Pendants
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/catelogsvg/necklace.svg"
+                                      alt="Custom Diamond Necklace NYC"
+                                      className="img-fit-size"
+                                      fluid
+                                    ></Image>
+                                    Necklaces
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/catelogsvg/brace.svg"
+                                      alt="Diamond Bracelet NYC"
+                                      className="img-fit-size"
+                                      fluid
+                                    ></Image>
+                                    Bracelets
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <Image
+                                      src="https://demo.belgiumwebnet.com/assets/images/catelogsvg/earings.svg"
+                                      alt="Diamond Earings NYC"
+                                      className="img-fit-size"
+                                      fluid
+                                    ></Image>
+                                    Earrings
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Shop By Metal
+                              </h2>
+                              <ul className="">
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con2"></span>Rose
+                                    Gold
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con3"></span>
+                                    White Gold
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con4"></span>
+                                    Yellow Gold
+                                  </Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link to="/">
+                                    <span className="color-con con5"></span>
+                                    Platinum
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <h2 className="text-uppercase mtb">
+                                Learn About
+                              </h2>
+                              <ul>
+                                <li>
+                                  <Nav.Link to="/">Your Jewelry</Nav.Link>
+                                </li>
+                                <li>
+                                  <Nav.Link
+                                    href="https://demo.belgiumwebnet.com/assets/images/eng-ring/Ring-sizing-guide.pdf"
+                                    target={"_blank"}
+                                  >
+                                    Ring Size Guide
+                                  </Nav.Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="mega-list-cat">
+                              <Nav.Link to="/">
+                                <Image
+                                  src="https://demo.belgiumwebnet.com/assets/images/menu_img/finejewelry.jpg"
+                                  alt="Fine Jewelry"
+                                  fluid
+                                ></Image>
+                              </Nav.Link>
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
+                    </Container>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </Navbar>
     </div>
   );
-}
+};
+
+export default MobileMenu;

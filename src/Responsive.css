@@ -6,52 +6,47 @@
     display: block !important;
     padding: 20px 0;
   }
-  .drawer-icon {
-    display: block !important;
-  }
-  .border_left_menu {
-    content: none !important;
-  }
-  .css-4t3x6l-MuiPaper-root-MuiDrawer-paper,
-  .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
-    width: 250px;
-  }
-  .dropdown-body.container {
-    padding: 0 10px;
-  }
-  .mega-list-cat ul.list-none {
-    width: 50%;
-  }
-  .border_left_menu::before {
-    content: none;
-  }
-  .mega-list-cat ul li a {
-    padding: 3px 0;
-    font-size: 12px;
-  }
-  .menu-image-mob {
-    width: 100%;
-  }
-  .MuiListItemButton-root.MuiListItemButton-gutters.MuiButtonBase-root.css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
-  }
-  .css-168pop2-MuiList-root {
-    padding-top: 0 !important;
-  }
   .logo.logo1 {
     display: inline-block;
+    margin-right: auto;
   }
   .logo.logo1 img {
     width: 150px;
-    margin: 0 10px 0 10px;
   }
-  .MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButtonBase-root.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
-    font-size: 11px;
-    margin-right: -23px;
+  .mobile_menu .btn.btn-primary {
+    background: none !important;
+    border: none !important;
+    color: #000 !important;
+    right: 0;
+    position: relative;
+    box-shadow: none !important;
   }
-}
-.drawer-icon {
-  display: none;
+  .offcanvas-start
+  {
+    width: 300px !important;
+  }
+  .hidden-menu-content
+  {
+    visibility: hidden;
+  }
+  .offcanvas-body {
+    padding: 0 !important;
+  }
+  .accordion-button {
+    box-shadow: none !important;
+    background: #f8f8f8 !important;
+    color: #000 !important;
+  }
+  .accordion-body, .nav-link, .col-12
+  {
+    padding: 0 !important;
+  }
+  .accordion-body .content-mega-menu li a, .content-mega-menu h2, li.menu.cool_menu1 h2 a, .mega-list-cat
+  {
+    padding: 5px 5px !important;
+    font-size: 14px;
+  }
+  .m-top {
+    margin-top: 0;
+  }
 }
