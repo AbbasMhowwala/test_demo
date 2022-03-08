@@ -1,8 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { BrowserView } from "react-device-detect";
 
 const MiddleMenu = () => {
   return (
+    <BrowserView>
     <div className="bw-middle desktop_menu">
       <div className="top-header">
         <Container>
@@ -81,6 +83,7 @@ const MiddleMenu = () => {
         </Container>
       </div>
     </div>
+    </BrowserView>
   );
 };
 

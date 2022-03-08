@@ -168,9 +168,6 @@ img.img-fit-size {
   border: 1px solid #ddd;
   vertical-align: middle;
 }
-.mobile_menu {
-  display: none;
-}
 ul li:hover > #overlay {
   display: block;
 }
