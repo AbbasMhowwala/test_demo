@@ -3,16 +3,26 @@ import "./Responsive.css";
 import Menu from "./components/Menu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Topnav from "./components/Topnav";
-import Slider from "./components/Slider";
 import MiddleMenu from "./components/MiddleMenu";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="main_demo">
-      <Topnav />
+    <BrowserRouter>
+    <Topnav />
       <MiddleMenu />
-      <Menu />
-      <Slider />
+      <Menu />             
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+      
     </div>
   );
 }

@@ -11,6 +11,8 @@ import {
 } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import { BrowserView, MobileView } from "react-device-detect";
+import { Link } from "react-router-dom";
+
 
 const Menu = () => {
   const options = [
@@ -41,13 +43,13 @@ const Menu = () => {
           <ul className="navbar-right-ul">
             <li className="menu desktop_logo">
               <div className="logo logo1">
-                <Nav.Link to="/">
+                <Link to="/">
                   <Image
                     src="https://demo.belgiumwebnet.com/assets/logo/logo2.png"
                     alt="Logo"
                     fluid
                   ></Image>
-                </Nav.Link>
+                </Link>
               </div>
             </li>
             <li className="menu cool_menu1 desktop_menu">
@@ -1421,6 +1423,9 @@ const Menu = () => {
             </li>
             <li className="menu cool_menu1 desktop_menu">
               <Nav.Link to="/">Custom Design</Nav.Link>
+            </li>
+            <li className="menu cool_menu1 desktop_menu">
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </Navbar>
